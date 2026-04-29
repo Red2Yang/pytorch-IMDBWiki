@@ -109,6 +109,13 @@ age = photo_taken - birth_year
 
 ![image](assets/test/29-female.png)
 
+## 目前的问题
+
+- 没有加入人脸识别的前置工作，因此就算输入一张没有人脸的图片，仍然会返回年龄和性别预测。
+- 训练拟合度可能不足。
+
+欢迎提出issue和pr~
+
 ## References
 
 感谢以下项目做出的贡献：

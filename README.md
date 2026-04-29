@@ -65,7 +65,7 @@ python predict.py --model_path ./checkpoints/best_model_both.pth --image_path te
 
 真实为29岁女性，识别如下：
 
-![image](assets/test/29-male.png)
+![image](assets/test/29-female.png)
 
 ## 原理
 

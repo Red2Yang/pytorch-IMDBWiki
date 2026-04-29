@@ -20,6 +20,7 @@ opencv-python
 numpy
 tqdm
 scipy
+matplotlib
 ```
 
 ## 数据集获取
@@ -52,9 +53,19 @@ python train.py --pkl_path path/to/pkl
 python predict.py --model_path ./checkpoints/best_model_both.pth --image_path test.jpg --task both
 ```
 
-## 效果（待补充）
+## 效果
 
+真实为59岁男性，识别如下：
 
+![image](assets/test/59-male.png)
+
+真实为42岁男性，识别如下：
+
+![image](assets/test/42-male.png)
+
+真实为29岁女性，识别如下：
+
+![image](assets/test/29-male.png)
 
 ## 原理
 

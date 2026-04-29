@@ -8,6 +8,8 @@ import torch.nn as nn
 
 import conf.config as config
 
+from utils.plt import draw_result
+
 class AgeEstimator(nn.Module):
     def __init__(self):
         super().__init__()
@@ -128,14 +130,19 @@ def main():
     if args.task == 'age':
         age, _ = predict(model, image_tensor, args.task, device)
         print(f"Predicted age: {age:.1f} years")
+        draw_result(args.image_path, age, None)
     elif args.task == 'gender':
         gender, probs = predict(model, image_tensor, args.task, device)
         gender_str = "Male" if gender == 1 else "Female"
         print(f"Predicted gender: {gender_str} (confidence: {max(probs):.3f})")
+        gender_str = "Male" if gender == 1 else "Female"
+        draw_result(args.image_path, None, gender_str, max(probs))
     else:   # both
         age, gender, probs = predict(model, image_tensor, args.task, device)
         gender_str = "Male" if gender == 1 else "Female"
         print(f"Predicted age: {age:.1f} years, gender: {gender_str} (confidence: {max(probs):.3f})")
+        gender_str = "Male" if gender == 1 else "Female"
+        draw_result(args.image_path, age, gender_str, max(probs))
 
 
 if __name__ == '__main__':

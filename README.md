@@ -77,12 +77,12 @@ age = photo_taken - birth_year
 - 对训练集：随机水平翻转、色彩抖动（亮度/对比度/饱和度/色调）、归一化（ImageNet 统计量）
 - 对验证集：仅缩放 + 归一化，无随机增强
 
-训练基于`ResNet50`模型进行迁移学习。将其原有的全连接分类层（fc）替换为恒等映射（`nn.Identity()`），然后新加了两个独立的线性层（`age_head`和`gender_head`）。
+训练基于`ResNet50`模型进行迁移学习。将其原有的全连接分类层`fc`替换为恒等映射`nn.Identity()`，然后新加了两个独立的线性层`age_head`和`gender_head`。
 
 损失函数：
 - 年龄：MSELoss（回归）
 - 性别：CrossEntropyLoss（二分类）
-- 联合：loss = loss_age + loss_gender
+- 联合损失：loss = loss_age + loss_gender
 
 优化器：Adam（学习率 1e-4）
 

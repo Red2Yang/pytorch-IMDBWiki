@@ -11,18 +11,17 @@
    - 1060以上显卡应该可以正常训练
 2. 有15GB以上空闲存储空间。
 
-还有必备的Python虚拟环境！包括CUDA、Pytorch的安装，这里不再赘述。使用第三方库如下：
+还有必备的Python虚拟环境！包括CUDA、Pytorch的安装，这里不再赘述。本人使用第三方库和版本如下：
 
 ```txt
-torch
-torchvision
-torchsummary
-pillow
-opencv-python
-numpy
-tqdm
-scipy
-matplotlib
+torch: 2.6.0+cu124
+torchvision: 0.21.0+cu124
+pillow: 12.0.0
+opencv-python: 4.13.0.92
+numpy: 2.3.5
+scipy: 1.17.1
+tqdm: 4.67.3
+matplotlib: 3.10.8
 ```
 
 ## 数据集获取
@@ -33,7 +32,7 @@ matplotlib
 
 ![image](assets/dataset.png)
 
-解压后在`conf/config.py`设置参数。
+**解压后在`conf/config.py`设置参数。**
 
 ## 生成`Python pickle`预处理文件
 
@@ -54,20 +53,6 @@ python train.py --pkl_path path/to/pkl
 ```Python
 python predict.py --model_path ./checkpoints/best_model_both.pth --image_path test.jpg --task both
 ```
-
-## 效果
-
-真实为59岁男性，识别如下：
-
-![image](assets/test/59-male.png)
-
-真实为42岁男性，识别如下：
-
-![image](assets/test/42-male.png)
-
-真实为29岁女性，识别如下：
-
-![image](assets/test/29-female.png)
 
 ## 原理
 
@@ -109,6 +94,20 @@ age = photo_taken - birth_year
 3. 若验证损失低于历史最佳，保存模型权重
 
 设备：自动选择 CUDA GPU 或 CPU。
+
+## 效果
+
+真实为59岁男性，识别如下：
+
+![image](assets/test/59-male.png)
+
+真实为42岁男性，识别如下：
+
+![image](assets/test/42-male.png)
+
+真实为29岁女性，识别如下：
+
+![image](assets/test/29-female.png)
 
 ## References
 
